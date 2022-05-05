@@ -5,6 +5,7 @@ import TxtForm from "./components/TxtForm";
 import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
+import ProductsCarousel from "./components/ProductsCarousel";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   const [mode, switchMode] = useState("light");
@@ -56,6 +57,7 @@ function App() {
                 />
               }
             />
+            <Route exact path="/products" element={<ProductsCarousel />} />
           </Routes>
         </div>
       </Router>

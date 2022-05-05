@@ -29,7 +29,11 @@ export default function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/products"
+              >
                 Products
               </Link>
             </li>
