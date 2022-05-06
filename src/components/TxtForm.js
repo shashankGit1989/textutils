@@ -57,33 +57,28 @@ export default function TxtForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              backgroundColor:
+                props.mode === "dark" ? "rgb(148 147 147)" : "white",
               color: props.mode === "dark" ? "white" : "black",
             }}
           ></textarea>
-          <button
-            className="btn btn-outline-primary mx-1 my-2"
-            onClick={handleUpClick}
-          >
+          <button className="btn btn-primary mx-1 my-2" onClick={handleUpClick}>
             Convert to Uppercase
           </button>
-          <button
-            className="btn btn-outline-primary mx-1"
-            onClick={handleLoClick}
-          >
+          <button className="btn btn-primary mx-1 my-2" onClick={handleLoClick}>
             Convert to Lowercase
           </button>
           <button
-            className="btn btn-outline-primary mx-1"
+            className="btn btn-primary mx-1 my-2"
             onClick={handleClearTextClick}
           >
             Clear text
           </button>
-          <button className="btn btn-outline-primary mx-1" onClick={copyText}>
+          <button className="btn btn-primary mx-1 my-2" onClick={copyText}>
             Copy text
           </button>
           <button
-            className="btn btn-outline-primary mx-1"
+            className="btn btn-primary mx-1 my-2"
             onClick={removeExtraSpaces}
           >
             Remove Extra Spaces
@@ -92,10 +87,20 @@ export default function TxtForm(props) {
         <div className="container mb-3">
           <h3>Your text summary</h3>
           <p>
-            Word count:{text.split(" ").length} and Characters: {text.length}
+            Word count:
+            {
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            }{" "}
+            and Characters: {text.length}
           </p>
           <p>
-            Average time to read the text: {0.08 * text.split(" ").length}{" "}
+            Average time to read the text:{" "}
+            {0.08 *
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length}{" "}
             minutes
           </p>
           <h3>Text Preview</h3>
